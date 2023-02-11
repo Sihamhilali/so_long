@@ -6,13 +6,11 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 16:06:56 by selhilal          #+#    #+#             */
-/*   Updated: 2023/01/28 16:11:48 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:09:04 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-BUFFER_SIZE = 1;
 
 char	*ft_write(char *str)
 {
@@ -53,7 +51,7 @@ char	*save(char *str)
 		free (str);
 		return (NULL);
 	}
-	ptr = (char *)malloc(sizeof(char) * (ft_strlen(str + i) + 1));
+	ptr = (char *)malloc(sizeof(char) * (ft_strlen(str) - i + 1));
 	if (!ptr)
 		return (NULL);
 	i++;
@@ -76,7 +74,7 @@ char	*ft_read(int fd, char *static_buffer)
 	size = 1;
 	while (!ft_strchr(static_buffer, '\n') && size != 0)
 	{
-		size = read(fd, buffer, BUFFER_SIZE);
+		size = read(fd, buffer, 42);
 		if (size == -1)
 		{
 			free(buffer);

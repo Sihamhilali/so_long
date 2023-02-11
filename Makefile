@@ -6,15 +6,35 @@
 #    By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/25 12:30:31 by selhilal          #+#    #+#              #
-#    Updated: 2023/01/27 11:50:05 by selhilal         ###   ########.fr        #
+#    Updated: 2023/02/11 16:38:47 by selhilal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = test.c 
-OBJ = (SRC:.c=.o)
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+NAME = so_long
 
-all : test
-test : test.o get_next_line.h
-	$(CC) -o $@ $< get_next_line
+CC = cc
+
+CFLAGS = -Wall -Werror -Wextra 
+
+LINK = -lmlx -framework OpenGL -framework AppKit
+
+SRC = mandatory/check_so_long.c mandatory/checkinsid.c mandatory/get_next_line.c mandatory/get_next_line_utils.c mandatory/mainMap.c mandatory/utils.c mandatory/inisiali.c mandatory/putback.c mandatory/checkmaps.c mandatory/player.c mandatory/keyhook.c mandatory/ft_put.c 
+OBJ = $(SRC:.c=.o)
+
+HED = mandatory/so_long.h
+
+%.o: %.c
+	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	
+$(NAME) : $(OBJ) $(HED)
+	$(CC) $(CFLAGS) $(SRC) $(LINK) -o $(NAME)
+	
+all : $(NAME)
+
+clean :
+	rm -rf $(OBJ)
+fclean : clean
+	rm -rf $(NAME)
+re : fclean all
+
+.PHONY: re fclean clean all 

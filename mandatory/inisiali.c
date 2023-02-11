@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   inisiali.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 18:42:05 by selhilal          #+#    #+#             */
-/*   Updated: 2023/01/28 17:29:40 by selhilal         ###   ########.fr       */
+/*   Created: 2023/02/07 15:06:18 by selhilal          #+#    #+#             */
+/*   Updated: 2023/02/11 16:41:15 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include"so_long.h"
 
-
-int	main(int arc, char **argv)
+void	inisia(t_map *data)
 {
-	int	fd;
+	data->len = 0;
+	data->width = 0;
+	data->n = 0;
+	data->k = 0;
+	data->y_p = 0;
+	data->x_p = 0;
+	data->collect = 0;
+	data->s = NULL;
+}
 
-	fd = open(argv[1], O_RDONLY);
-	mapre(fd);
-	return (0);
+void	move(t_map *data)
+{
+	(data->move) += 1;
+	ft_putnbr(data->move);
+	ft_putchar('\n');
 }
