@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:48:20 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/11 16:38:16 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:54:24 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	hi(char **var)
 void	init_ptr(t_map **data)
 {
 	(*data)->m_new_w = mlx_new_window((*data)->m_init,
-			((*data)->j + 1) * 50, (*data)->m, "so_long");
+			((*data)->t_len) * 50, (*data)->t_size, "so_long");
 	(*data)->zer = mlx_xpm_file_to_image((*data)->m_init,
 			"manda/wall/one.xpm", &(*data)->width, &(*data)->len);
 	(*data)->one = mlx_xpm_file_to_image((*data)->m_init,
@@ -64,9 +64,10 @@ int	main(int ac, char	**av)
 		if (fd == -1)
 			exit(1);
 		check_line(fd, data);
+		//backtracking_collect(data);
 		data->m_init = mlx_init();
-		data->j = ft_strlen(*data->table) - 1;
-		data->m = hi(data->table) * 50;
+		data->t_len = ft_strlen(*data->table);
+		data->t_size = hi(data->table) * 50;
 		init_ptr(&data);
 		pics2(data);
 		mlx_hook(data->m_new_w, 2, 0, ft_key_hook, (void *)data);

@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:29:29 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/11 16:21:00 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/11 21:39:15 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct map
 	void	*m_init;
 	char	*s;
 	int		move;
+	int		t_len;
+	int		t_size;
 
 }			t_map;
 
@@ -63,14 +65,13 @@ void	checkright(t_map *h);
 void	checkleft(t_map *h);
 void	check_down(t_map *h);
 void	check_toop(t_map *h);
-int		check_p(t_map *d);
 void	check_player(t_map *d);
 void	check_c(t_map *k);
 void	check_e(t_map *k);
 void	pics(t_map	*t);
 int		pics2(t_map *u);
 void	inisia(t_map *j);
-void	newlin(char *h);
+void	care(t_map *data);
 int		hi(char **var);
 int		ft_key_hook(int i, t_map *data);
 void	*ft_free(char **split);
@@ -86,5 +87,6 @@ int		search(char *str, char *ber);
 void	ber(char *str);
 void	amination(t_map *data);
 void	move(t_map *data);
+int		position_p(t_map *d);
 
 #endif

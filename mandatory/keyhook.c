@@ -6,13 +6,13 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:05:54 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/11 16:40:20 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/11 19:06:38 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long.h"
 
-int	check_p(t_map *d)
+int	position_p(t_map *d)
 {
 	int	i;
 	int	j;
@@ -43,7 +43,7 @@ int	ft_moveup(t_map *data)
 
 	i = 0;
 	j = 0;
-	check_p(data);
+	position_p(data);
 	if (data->table[*data->x_p - 1][*data->y_p] == 'E' && data->collect == 0)
 	{
 		ft_putstr("you won\n");
@@ -70,7 +70,7 @@ int	ft_movedown(t_map	*data)
 
 	i = 0;
 	j = 0;
-	check_p(data);
+	position_p(data);
 	if (data->table[*data->x_p + 1][*data->y_p] == 'E' && data->collect == 0)
 	{
 		ft_putstr("you won\n");
@@ -97,7 +97,7 @@ int	ft_moveleft(t_map	*data)
 
 	i = 0;
 	j = 0;
-	check_p(data);
+	position_p(data);
 	if (data->table[*data->x_p][*data->y_p - 1] == 'E' && data->collect == 0)
 	{
 		ft_putstr("you won\n");
@@ -124,7 +124,7 @@ int	ft_moveright(t_map	*data)
 
 	i = 0;
 	j = 0;
-	check_p(data);
+	position_p(data);
 	if (data->table[*data->x_p][*data->y_p + 1] == 'E' && data->collect == 0)
 	{
 		ft_putstr("you won\n");

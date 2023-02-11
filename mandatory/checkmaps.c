@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:29:17 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/11 15:48:17 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/11 21:39:00 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,25 +83,11 @@ void	checkright(t_map *data)
 	}
 }
 
-void	newlin(char *data)
+void	care(t_map *data)
 {
-	int	i;
-
-	i = 0;
-	while (data[i])
+	if (data->m == data->j)
 	{
-		if (data[i] == '\n')
-		{
-			if (data[i - 1] == '1')
-			{
-				i++;
-			}
-			else if (data[i - 1] != '1')
-			{
-				ft_putstr("Error\n no no 9ad dakchi\n");
-				exit(1);
-			}
-		}
-		i++;
+		ft_putstr("Error\n no no ... ");
+		exit(0);
 	}
 }
