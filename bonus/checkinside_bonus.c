@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkinsid.c                                       :+:      :+:    :+:   */
+/*   checkinside_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 18:43:02 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/14 12:26:06 by selhilal         ###   ########.fr       */
+/*   Created: 2023/02/12 14:16:34 by selhilal          #+#    #+#             */
+/*   Updated: 2023/02/13 17:18:15 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"so_long_bonus.h"
 
-void	msg(t_map *data, char *str)
+void	msg_bonus(t_list *data, char *str)
 {
 	ft_putstr(str);
 	ft_free(data->table);
-	exit(1);
+	exit(0);
 }
 
-void	check_player(t_map *d)
+void	check_player_bonus(t_list *d)
 {
 	int	i;
 	int	j;
@@ -44,7 +44,7 @@ void	check_player(t_map *d)
 		msg(d, "Error\n one player !!\n");
 }
 
-void	check_c(t_map *data)
+void	check_e_bonus(t_list *data)
 {
 	int	i;
 	int	j;
@@ -68,7 +68,7 @@ void	check_c(t_map *data)
 		msg(data, " Error\n one Exit !!\n");
 }
 
-void	check_e(t_map *data)
+void	check_c_bonus(t_list *data)
 {
 	int	i;
 	int	j;
@@ -89,4 +89,29 @@ void	check_e(t_map *data)
 	}
 	if (data->collect < 1)
 		msg(data, "Error\n one or more food !!\n");
+}
+
+void	check_n_bonus(t_list *data)
+{
+	int	i;
+	int	j;
+	int	n;
+
+
+	i = 0;
+	n = 0;
+	j = 0;
+	while (data->table[j])
+	{
+		i = 0;
+		while (data->table[j][i])
+		{
+			if (data->table[j][i] == 'N')
+				n++;
+		i++;
+		}
+		j++;
+	}
+	if (n < 1)
+		msg(data, "Error\n one or more Enemy !!\n");
 }

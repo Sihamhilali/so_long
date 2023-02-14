@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 16:06:56 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/14 15:34:59 by selhilal         ###   ########.fr       */
+/*   Created: 2023/02/12 14:44:50 by selhilal          #+#    #+#             */
+/*   Updated: 2023/02/13 16:22:40 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include"so_long_bonus.h"
 
-char	*ft_write(char *str)
+static char	*ft_write(char *str)
 {
 	int		i;
 	char	*ptr;
 
 	i = 0;
-	if (!str[i])
+	if (!str)
 		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
@@ -37,7 +37,7 @@ char	*ft_write(char *str)
 	return (ptr);
 }
 
-char	*save(char *str)
+static char	*save(char *str)
 {
 	int		i;
 	char	*ptr;
@@ -63,7 +63,7 @@ char	*save(char *str)
 	return (ptr);
 }
 
-char	*ft_read(int fd, char *static_buffer)
+static char	*ft_read(int fd, char *static_buffer)
 {
 	char	*buffer;
 	int		size;
@@ -74,11 +74,10 @@ char	*ft_read(int fd, char *static_buffer)
 	size = 1;
 	while (!ft_strchr(static_buffer, '\n') && size != 0)
 	{
-		size = read(fd, buffer, BUFFER_SIZE);
+		size = read(fd, buffer, 42);
 		if (size == -1)
 		{
 			free(buffer);
-			free(static_buffer);
 			return (NULL);
 		}
 		buffer[size] = '\0';
@@ -94,7 +93,7 @@ char	*get_next_line(int fd)
 	static char	*str;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (0);
 	str = ft_read(fd, str);
 	if (!str)
 		return (NULL);

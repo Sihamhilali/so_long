@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 13:01:49 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/08 17:27:32 by selhilal         ###   ########.fr       */
+/*   Created: 2023/02/12 14:39:10 by selhilal          #+#    #+#             */
+/*   Updated: 2023/02/12 14:39:28 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"so_long_bonus.h"
 
 static int	ft_count(char const *s, char c)
 {
@@ -111,4 +111,3 @@ char	**ft_split(char const *s, char c)
 	str[w] = 0;
 	return (str);
 }
-

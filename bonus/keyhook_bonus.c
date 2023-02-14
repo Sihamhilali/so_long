@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   keyhook_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 16:05:54 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/14 14:14:58 by selhilal         ###   ########.fr       */
+/*   Created: 2023/02/14 11:26:46 by selhilal          #+#    #+#             */
+/*   Updated: 2023/02/14 11:31:36 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"so_long_bonus.h"
 
-int	position_p(t_map *d)
+int	position_p_bonus(t_list *d)
 {
 	int	i;
 	int	j;
@@ -36,14 +36,14 @@ int	position_p(t_map *d)
 	return (1);
 }
 
-int	ft_moveup(t_map *data)
+int	ft_moveup_bonus(t_list *data)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	position_p(data);
+	position_p_bonus(data);
 	if (data->table[data->x_p - 1][data->y_p] == 'E' && data->collect == 0)
 	{
 		ft_putstr("you won\n");
@@ -54,29 +54,23 @@ int	ft_moveup(t_map *data)
 	{
 		if (data->table[data->x_p - 1][data->y_p] == 'C')
 			data->collect--;
-		if (data->collect == 0)
-			{
-				mlx_destroy_image(data->m_init,data->exit);
-					data->exit = mlx_xpm_file_to_image(data->m_init,
-					"manda/door/open.xpm", &data->width, &data->len);
-			}
 		data->table[data->x_p][data->y_p] = '0';
 		data->table[data->x_p - 1][data->y_p] = 'P';
 		data->x_p -= 1;
-		move(data);
+		move_bonus(data);
 	}
 	pics2(data);
 	return (0);
 }
 
-int	ft_movedown(t_map	*data)
+int	ft_movedown_bonus(t_list	*data)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	position_p(data);
+	position_p_bonus(data);
 	if (data->table[data->x_p + 1][data->y_p] == 'E' && data->collect == 0)
 	{
 		ft_putstr("you won\n");
@@ -87,29 +81,23 @@ int	ft_movedown(t_map	*data)
 	{
 		if (data->table[data->x_p + 1][data->y_p] == 'C')
 			data->collect--;
-			if (data->collect == 0)
-			{
-				mlx_destroy_image(data->m_init,data->exit);
-					data->exit = mlx_xpm_file_to_image(data->m_init,
-					"manda/door/open.xpm", &data->width, &data->len);
-			}
 		data->table[data->x_p][data->y_p] = '0';
 		data->table[data->x_p + 1][data->y_p] = 'P';
 		data->x_p += 1;
-		move(data);
+		move_bonus(data);
 	}
 	pics2(data);
 	return (0);
 }
 
-int	ft_moveleft(t_map	*data)
+int	ft_moveleft_bonus(t_list	*data)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	position_p(data);
+	position_p_bonus(data);
 	if (data->table[data->x_p][data->y_p - 1] == 'E' && data->collect == 0)
 	{
 		ft_putstr("you won\n");
@@ -120,29 +108,23 @@ int	ft_moveleft(t_map	*data)
 	{
 		if (data->table[data->x_p][data->y_p - 1] == 'C')
 			data->collect--;
-				if (data->collect == 0)
-			{
-				mlx_destroy_image(data->m_init,data->exit);
-					data->exit = mlx_xpm_file_to_image(data->m_init,
-					"manda/door/open.xpm", &data->width, &data->len);
-			}
 		data->table[data->x_p][data->y_p] = '0';
 		data->table[data->x_p][data->y_p - 1] = 'P';
 		data->x_p -= 1;
-		move(data);
+		move_bonus(data);
 	}
 	pics2(data);
 	return (0);
 }
 
-int	ft_moveright(t_map	*data)
+int	ft_moveright_bonus(t_list	*data)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	position_p(data);
+	position_p_bonus(data);
 	if (data->table[data->x_p][data->y_p + 1] == 'E' && data->collect == 0)
 	{
 		ft_putstr("you won\n");
@@ -153,16 +135,10 @@ int	ft_moveright(t_map	*data)
 	{
 		if (data->table[data->x_p][data->y_p + 1] == 'C')
 			data->collect--;
-			if (data->collect == 0)
-			{
-				mlx_destroy_image(data->m_init,data->exit);
-					data->exit = mlx_xpm_file_to_image(data->m_init,
-					"manda/door/open.xpm", &data->width, &data->len);
-			}
 		data->table[data->x_p][data->y_p] = '0';
 		data->table[data->x_p][data->y_p + 1] = 'P';
 		data->x_p += 1;
-		move(data);
+		move_bonus(data);
 	}
 	pics2(data);
 	return (0);

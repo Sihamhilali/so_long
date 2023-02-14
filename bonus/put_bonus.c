@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put.c                                           :+:      :+:    :+:   */
+/*   put_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 17:24:36 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/14 12:26:33 by selhilal         ###   ########.fr       */
+/*   Created: 2023/02/12 14:40:23 by selhilal          #+#    #+#             */
+/*   Updated: 2023/02/13 16:18:20 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"so_long_bonus.h"
 
 void	ft_putchar(char c)
 {
@@ -26,7 +26,7 @@ void	ft_putstr(char *s)
 	i = 0;
 	while (s[i])
 	{
-		write (2, &s[i], 1);
+		write (1, &s[i], 1);
 		i++;
 	}
 }
@@ -74,8 +74,7 @@ void	ber(char *str)
 {
 	if (search(str, ".ber") == 0)
 	{
-		write(1, "Error\n please extenstion .ber\n", 22);
+		ft_putstr("Error\n please extenstion .ber\n");
 		exit(0);
 	}
-
 }

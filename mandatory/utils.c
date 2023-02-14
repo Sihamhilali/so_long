@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 17:39:03 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/11 17:42:25 by selhilal         ###   ########.fr       */
+/*   Created: 2023/01/30 13:01:49 by selhilal          #+#    #+#             */
+/*   Updated: 2023/02/08 17:27:32 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long.h"
 
-int	ft_count(char const *s, char c)
+static int	ft_count(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -31,7 +31,7 @@ int	ft_count(char const *s, char c)
 	return (count);
 }
 
-int	count_word(char const *s, char c)
+static int	count_word(char const *s, char c)
 {
 	int	i;
 	int	w;
@@ -48,7 +48,7 @@ int	count_word(char const *s, char c)
 	return (w);
 }
 
-char	*ft_table(char const *s, char c)
+static char	*ft_table(char const *s, char c)
 {
 	int		len;
 	char	*ptr;
@@ -94,7 +94,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	str = (char **)malloc(sizeof(char *) * (ft_count(s, c) + 1));
 	if (!str)
-		exit(1);
+		return (NULL);
 	i = 0;
 	w = 0;
 	while (s[i])
@@ -111,3 +111,4 @@ char	**ft_split(char const *s, char c)
 	str[w] = 0;
 	return (str);
 }
+

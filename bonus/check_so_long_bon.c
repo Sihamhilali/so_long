@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_so_long.c                                    :+:      :+:    :+:   */
+/*   check_so_long_bon.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 16:14:22 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/14 15:37:08 by selhilal         ###   ########.fr       */
+/*   Created: 2023/02/12 12:17:17 by selhilal          #+#    #+#             */
+/*   Updated: 2023/02/13 17:15:17 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include"so_long_bonus.h"
 
-void	checks(t_map *data)
+void	checks_bonus(t_list *data)
 {
-	get_high(data);
 	check_toop(data);
 	check_down(data);
 	checkleft(data);
@@ -22,9 +21,10 @@ void	checks(t_map *data)
 	check_player(data);
 	check_c(data);
 	check_e(data);
+	care(data);
 }
 
-void	get_high(t_map *data)
+void	get_high_bonus(t_list *data)
 {
 	int	i;
 	int	j;
@@ -49,7 +49,7 @@ void	get_high(t_map *data)
 	}
 }
 
-void	lastline(char *k)
+void	lastline_bonus(char *k)
 {
 	if (k[ft_strlen(k) - 1] != '1')
 	{
@@ -58,29 +58,28 @@ void	lastline(char *k)
 	}
 }
 
-void	check_line(int fd, t_map *data)
+void	check_line_bonus(int fd, t_list *data)
 {
 	char	*k;
 
 	data->j = -1;
 	k = ft_strdup("");
-	data->s = get_next_line(fd);
-	if (!*data->s)
+	data->str = get_next_line(fd);
+	if (!*data->str)
 		exit(0);
-	while (data->s)
+	while (data->str[0] != 0)
 	{
-		if (!data->s || data->s[0] == '\n')
+		k = ft_strjoin(k, data->str);
+		free(data->str);
+		data->str = get_next_line(fd);
+		if (!data->str || data->str[0] == '\n')
 		{
 			ft_putstr("Error\n New Line");
 			exit(1);
 		}
-		k = ft_strjoin(k, data->s);
-		free(data->s);
-		data->s = get_next_line(fd);
 		data->j++;
 	}
 	lastline(k);
 	data->table = ft_split(k, '\n');
-	free(k);
 	checks(data);
 }

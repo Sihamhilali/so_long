@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 16:07:24 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/14 15:07:08 by selhilal         ###   ########.fr       */
+/*   Created: 2023/02/12 14:45:32 by selhilal          #+#    #+#             */
+/*   Updated: 2023/02/12 15:10:01 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include"so_long_bonus.h"
 
 char	*ft_strchr(char *s, int c)
 {
@@ -28,6 +28,24 @@ char	*ft_strchr(char *s, int c)
 		i++;
 	}
 	return (0);
+}
+
+char	*ft_strdup(char *string)
+{
+	int		i;
+	char	*ptr;
+
+	i = 0;
+	ptr = (char *)malloc(sizeof(char) * ft_strlen(string)+1);
+	if (!ptr)
+		return (NULL);
+	while (string[i])
+	{
+		ptr[i] = string[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }
 
 int	ft_strlen(char *s)
@@ -51,6 +69,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!s1)
 	{
 		s1 = (char *)malloc(1 * sizeof(char));
+		s1 = ft_strdup("");
 		s1[0] = '\0';
 	}
 	if (!s1 || !s2)

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putback.c                                          :+:      :+:    :+:   */
+/*   putback_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/07 14:54:51 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/14 11:48:25 by selhilal         ###   ########.fr       */
+/*   Created: 2023/02/14 11:34:06 by selhilal          #+#    #+#             */
+/*   Updated: 2023/02/14 11:50:51 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"so_long_bonus.h"
 
-void	pic_player(int x, int y, t_map **data)
+void	pic_player(int x, int y, t_list **data)
 {
 	mlx_put_image_to_window((*data)->m_init,
 		(*data)->m_new_w, (*data)->zer, x, y);
@@ -20,7 +20,7 @@ void	pic_player(int x, int y, t_map **data)
 		(*data)->m_new_w, (*data)->player, x, y);
 }
 
-void	pic_exit(int x, int y, t_map **data)
+void	pic_exit(int x, int y, t_list **data)
 {
 	mlx_put_image_to_window((*data)->m_init,
 		(*data)->m_new_w, (*data)->zer, x, y);
@@ -28,7 +28,7 @@ void	pic_exit(int x, int y, t_map **data)
 		(*data)->m_new_w, (*data)->exit, x, y);
 }
 
-void	draw_element(char c, int x, int y, t_map **data)
+void	draw_element(char c, int x, int y, t_list **data)
 {
 	if (c == '1')
 		mlx_put_image_to_window((*data)->m_init,
@@ -50,7 +50,7 @@ void	draw_element(char c, int x, int y, t_map **data)
 
 }
 
-int	pics2(t_map *data)
+int	pics2(t_list *data)
 {
 	int	i;
 	int	j;

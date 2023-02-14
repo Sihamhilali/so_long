@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:29:29 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/11 21:39:15 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:48:57 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <mlx.h>
 
+
 typedef struct map
 {
 	int		collect;
@@ -26,8 +27,8 @@ typedef struct map
 	int		m;
 	int		j;
 	char	c;
-	int		*x_p;
-	int		*y_p;
+	int		x_p;
+	int		y_p;
 	char	e;
 	int		width;
 	int		len;
@@ -54,8 +55,8 @@ typedef struct map
 
 char	*ft_strchr(char *str, int c);
 int		ft_strlen(char *s);
-void	*ft_memcpy(void *dest, void *src, size_t n);
-void	*ft_memmove(void *dest, void *src, size_t n);
+//void	*ft_memcpy(void *dest, void *src, size_t n);
+//void	*ft_memmove(void *dest, void *src, size_t n);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(char *string);
 char	*get_next_line(int fd);
@@ -71,7 +72,6 @@ void	check_e(t_map *k);
 void	pics(t_map	*t);
 int		pics2(t_map *u);
 void	inisia(t_map *j);
-void	care(t_map *data);
 int		hi(char **var);
 int		ft_key_hook(int i, t_map *data);
 void	*ft_free(char **split);
@@ -85,8 +85,12 @@ void	ft_putstr(char *s);
 void	ft_putnbr(int n);
 int		search(char *str, char *ber);
 void	ber(char *str);
-void	amination(t_map *data);
 void	move(t_map *data);
 int		position_p(t_map *d);
+void	get_high(t_map *data);
+void	backtracking_collect(t_map *data);
+void	backtracking_exit(t_map *data);
+void	checkma(char **tab, int x, int y, t_map *data);
+void	msg(t_map *data, char *str);
 
 #endif
