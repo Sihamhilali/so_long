@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 13:01:49 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/08 17:27:32 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:20:05 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,3 @@ char	**ft_split(char const *s, char c)
 	str[w] = 0;
 	return (str);
 }
-

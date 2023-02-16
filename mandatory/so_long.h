@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:29:29 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/14 15:48:57 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:36:31 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <mlx.h>
-
 
 typedef struct map
 {
@@ -49,14 +48,10 @@ typedef struct map
 
 }			t_map;
 
-# ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
-# endif
+# define BUFFER_SIZE 42 
 
 char	*ft_strchr(char *str, int c);
 int		ft_strlen(char *s);
-//void	*ft_memcpy(void *dest, void *src, size_t n);
-//void	*ft_memmove(void *dest, void *src, size_t n);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(char *string);
 char	*get_next_line(int fd);

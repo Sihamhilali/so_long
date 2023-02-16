@@ -1,51 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   keyhppk _bonus2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 16:05:54 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/16 14:09:58 by selhilal         ###   ########.fr       */
+/*   Created: 2023/02/16 14:23:22 by selhilal          #+#    #+#             */
+/*   Updated: 2023/02/16 14:27:05 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"so_long_bonus.h"
 
-int	position_p(t_map *d)
+void	ft_moveup_bonus2(t_list *data)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (d->table[i])
-	{
-		j = 0;
-		while (d->table[i][j])
-		{
-			if (d->table[i][j] == 'P')
-			{
-				d->x_p = i;
-				d->y_p = j;
-				return (0);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
-
-int	ft_moveup(t_map *data)
-{
-	position_p(data);
-	if (data->table[data->x_p - 1][data->y_p] == 'E' && data->collect == 0)
-	{
-		ft_putstr("you won\n");
-		exit(0);
-	}
 	if (data->table[data->x_p - 1][data->y_p] != '1' &&
-		data->table[data->x_p - 1][data->y_p] != 'E')
+		data->table[data->x_p - 1][data->y_p] != 'E' &&
+		data->table[data->x_p - 1][data->y_p] != 'N')
 	{
 		if (data->table[data->x_p - 1][data->y_p] == 'C')
 			data->collect--;
@@ -58,22 +29,15 @@ int	ft_moveup(t_map *data)
 		data->table[data->x_p][data->y_p] = '0';
 		data->table[data->x_p - 1][data->y_p] = 'P';
 		data->x_p -= 1;
-		move(data);
+		data->move++;
 	}
-	pics2(data);
-	return (0);
 }
 
-int	ft_movedown(t_map	*data)
+void	ft_movedown_bonus2(t_list *data)
 {
-	position_p(data);
-	if (data->table[data->x_p + 1][data->y_p] == 'E' && data->collect == 0)
-	{
-		ft_putstr("you won\n");
-		exit(0);
-	}
 	if (data->table[data->x_p + 1][data->y_p] != '1' &&
-		data->table[data->x_p + 1][data->y_p] != 'E')
+		data->table[data->x_p + 1][data->y_p] != 'E' &&
+		data->table[data->x_p + 1][data->y_p] != 'N')
 	{
 		if (data->table[data->x_p + 1][data->y_p] == 'C')
 			data->collect--;
@@ -86,22 +50,15 @@ int	ft_movedown(t_map	*data)
 		data->table[data->x_p][data->y_p] = '0';
 		data->table[data->x_p + 1][data->y_p] = 'P';
 		data->x_p += 1;
-		move(data);
+		data->move++;
 	}
-	pics2(data);
-	return (0);
 }
 
-int	ft_moveleft(t_map	*data)
+void	ft_moveleft_bonus2(t_list *data)
 {
-	position_p(data);
-	if (data->table[data->x_p][data->y_p - 1] == 'E' && data->collect == 0)
-	{
-		ft_putstr("you won\n");
-		exit(0);
-	}
 	if (data->table[data->x_p][data->y_p - 1] != '1' &&
-		data->table[data->x_p][data->y_p - 1] != 'E')
+		data->table[data->x_p][data->y_p - 1] != 'E' &&
+		data->table[data->x_p][data->y_p - 1] != 'N')
 	{
 		if (data->table[data->x_p][data->y_p - 1] == 'C')
 			data->collect--;
@@ -114,22 +71,15 @@ int	ft_moveleft(t_map	*data)
 		data->table[data->x_p][data->y_p] = '0';
 		data->table[data->x_p][data->y_p - 1] = 'P';
 		data->x_p -= 1;
-		move(data);
+		data->move++;
 	}
-	pics2(data);
-	return (0);
 }
 
-int	ft_moveright(t_map	*data)
+void	ft_moveright_bonus2(t_list *data)
 {
-	position_p(data);
-	if (data->table[data->x_p][data->y_p + 1] == 'E' && data->collect == 0)
-	{
-		ft_putstr("you won\n");
-		exit(0);
-	}
 	if (data->table[data->x_p][data->y_p + 1] != '1' &&
-		data->table[data->x_p][data->y_p + 1] != 'E')
+		data->table[data->x_p][data->y_p + 1] != 'E' &&
+		data->table[data->x_p][data->y_p + 1] != 'N')
 	{
 		if (data->table[data->x_p][data->y_p + 1] == 'C')
 			data->collect--;
@@ -142,8 +92,6 @@ int	ft_moveright(t_map	*data)
 		data->table[data->x_p][data->y_p] = '0';
 		data->table[data->x_p][data->y_p + 1] = 'P';
 		data->x_p += 1;
-		move(data);
+		data->move++;
 	}
-	pics2(data);
-	return (0);
 }

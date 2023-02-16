@@ -1,50 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inisiali.c                                         :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/07 15:06:18 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/16 14:12:59 by selhilal         ###   ########.fr       */
+/*   Created: 2023/02/15 11:27:24 by selhilal          #+#    #+#             */
+/*   Updated: 2023/02/15 11:52:42 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"so_long_bonus.h"
 
-void	inisia(t_map *data)
+int	ft_c(int n)
 {
-	data->len = 0;
-	data->width = 0;
-	data->n = 0;
-	data->k = 0;
-	data->y_p = 0;
-	data->x_p = 0;
-	data->collect = 0;
-	data->s = NULL;
+	int	i;
+
+	i = 0;
+	if (n <= 0)
+	{
+		n *= -1;
+		i++;
+	}
+	while (n)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
 }
 
-void	move(t_map *data)
-{
-	(data->move) += 1;
-	ft_putnbr(data->move);
-	ft_putchar('\n');
-}
-
-char	*ft_strdup(char *string)
+char	*ft_itoa(int n)
 {
 	int		i;
 	char	*ptr;
+	int		t;
+	long	nbr;
 
-	i = 0;
-	ptr = (char *)malloc(sizeof(char) * ft_strlen(string)+1);
+	nbr = n;
+	i = ft_c(n);
+	t = 0;
+	ptr = malloc((sizeof(char) * (i + 1)));
 	if (!ptr)
-		return (NULL);
-	while (string[i])
+		return (0);
+	if (nbr < 0)
 	{
-		ptr[i] = string[i];
-		i++;
+		ptr[0] = '-';
+		nbr *= -1;
 	}
-	ptr[i] = '\0';
+	ptr[i] = 0;
+	while (i && (nbr != 0 || n == 0))
+	{
+		ptr[--i] = '0' + nbr % 10 ;
+		nbr = nbr / 10;
+	}
 	return (ptr);
 }

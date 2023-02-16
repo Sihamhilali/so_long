@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:24:36 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/14 12:26:33 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:20:30 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,4 @@ void	ber(char *str)
 		write(1, "Error\n please extenstion .ber\n", 22);
 		exit(0);
 	}
-
 }

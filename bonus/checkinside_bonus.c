@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:16:34 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/13 17:18:15 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:33:06 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	check_player_bonus(t_list *d)
 		i++;
 	}
 	if (l < 1 || l > 1)
-		msg(d, "Error\n one player !!\n");
+		msg_bonus(d, "Error\n one player !!\n");
 }
 
 void	check_e_bonus(t_list *data)
@@ -65,14 +65,13 @@ void	check_e_bonus(t_list *data)
 		j++;
 	}
 	if (h < 1 || h > 1)
-		msg(data, " Error\n one Exit !!\n");
+		msg_bonus(data, " Error\n one Exit !!\n");
 }
 
 void	check_c_bonus(t_list *data)
 {
 	int	i;
 	int	j;
-
 
 	i = 0;
 	j = 0;
@@ -88,7 +87,7 @@ void	check_c_bonus(t_list *data)
 		j++;
 	}
 	if (data->collect < 1)
-		msg(data, "Error\n one or more food !!\n");
+		msg_bonus(data, "Error\n one or more food !!\n");
 }
 
 void	check_n_bonus(t_list *data)
@@ -96,7 +95,6 @@ void	check_n_bonus(t_list *data)
 	int	i;
 	int	j;
 	int	n;
-
 
 	i = 0;
 	n = 0;
@@ -113,5 +111,5 @@ void	check_n_bonus(t_list *data)
 		j++;
 	}
 	if (n < 1)
-		msg(data, "Error\n one or more Enemy !!\n");
+		msg_bonus(data, "Error\n one or more Enemy !!\n");
 }

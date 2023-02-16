@@ -6,19 +6,19 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:44:50 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/13 16:22:40 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:33:22 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long_bonus.h"
 
-static char	*ft_write(char *str)
+char	*ft_write(char *str)
 {
 	int		i;
 	char	*ptr;
 
 	i = 0;
-	if (!str)
+	if (!str[i])
 		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
@@ -37,7 +37,7 @@ static char	*ft_write(char *str)
 	return (ptr);
 }
 
-static char	*save(char *str)
+char	*save(char *str)
 {
 	int		i;
 	char	*ptr;
@@ -63,7 +63,7 @@ static char	*save(char *str)
 	return (ptr);
 }
 
-static char	*ft_read(int fd, char *static_buffer)
+char	*ft_read(int fd, char *static_buffer)
 {
 	char	*buffer;
 	int		size;
@@ -74,10 +74,11 @@ static char	*ft_read(int fd, char *static_buffer)
 	size = 1;
 	while (!ft_strchr(static_buffer, '\n') && size != 0)
 	{
-		size = read(fd, buffer, 42);
+		size = read(fd, buffer, BUFFER_SIZE);
 		if (size == -1)
 		{
 			free(buffer);
+			free(static_buffer);
 			return (NULL);
 		}
 		buffer[size] = '\0';
@@ -93,7 +94,7 @@ char	*get_next_line(int fd)
 	static char	*str;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
+		return (NULL);
 	str = ft_read(fd, str);
 	if (!str)
 		return (NULL);

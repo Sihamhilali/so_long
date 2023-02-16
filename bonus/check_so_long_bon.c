@@ -6,22 +6,45 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:17:17 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/13 17:15:17 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/16 11:11:47 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long_bonus.h"
 
+void	checkenmy(t_list *data)
+{
+	int	i;
+	int	j;
+	int	y;
+
+	y = 0;
+	i = 0;
+	while (data->table[i])
+	{
+		j = 0;
+		while (data->table[i][j])
+		{
+			if (data->table[i][j] == 'N')
+				y++;
+			j++;
+		}
+		i++;
+	}
+	if (y < 1)
+		msg_bonus(data, "Error\n one or more enemy !!\n");
+}
+
 void	checks_bonus(t_list *data)
 {
-	check_toop(data);
-	check_down(data);
-	checkleft(data);
-	checkright(data);
-	check_player(data);
-	check_c(data);
-	check_e(data);
-	care(data);
+	check_toop_bonus(data);
+	check_down_bonus(data);
+	checkleft_bonus(data);
+	checkright_bonus(data);
+	check_player_bonus(data);
+	check_c_bonus(data);
+	check_e_bonus(data);
+	checkenmy(data);
 }
 
 void	get_high_bonus(t_list *data)
@@ -43,7 +66,7 @@ void	get_high_bonus(t_list *data)
 		if (k != i)
 		{
 			ft_putstr("Error\n");
-			exit(1);
+			exit(0);
 		}
 		j++;
 	}
@@ -67,19 +90,20 @@ void	check_line_bonus(int fd, t_list *data)
 	data->str = get_next_line(fd);
 	if (!*data->str)
 		exit(0);
-	while (data->str[0] != 0)
+	while (data->str)
 	{
-		k = ft_strjoin(k, data->str);
-		free(data->str);
-		data->str = get_next_line(fd);
 		if (!data->str || data->str[0] == '\n')
 		{
 			ft_putstr("Error\n New Line");
 			exit(1);
 		}
+		k = ft_strjoin(k, data->str);
+		free(data->str);
+		data->str = get_next_line(fd);
 		data->j++;
 	}
-	lastline(k);
+	lastline_bonus(k);
 	data->table = ft_split(k, '\n');
-	checks(data);
+	free(k);
+	checks_bonus(data);
 }

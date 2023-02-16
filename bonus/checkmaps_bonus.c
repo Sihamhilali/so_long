@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:25:37 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/13 17:19:59 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:55:53 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	check_down_bonus(t_list *data)
 	int	i;
 
 	i = 0;
-	while (data->table[data->line][i])
+	while (data->table[data->j][i])
 	{
-		if (data->table[data->line][i] != '1')
+		if (data->table[data->j][i] != '1')
 		{
 			ft_putstr("Error\n");
 			exit(0);
@@ -50,7 +50,7 @@ void	checkleft_bonus(t_list *data)
 	int	j;
 
 	i = 0;
-	j = data->line;
+	j = data->j;
 	while (data->table[j][i] != '\n' && data->table[j][i])
 	{
 		i++;
@@ -72,7 +72,7 @@ void	checkright_bonus(t_list *data)
 	int	x;
 
 	x = 0;
-	while (data->table[x][0] && x < data->line)
+	while (data->table[x][0] && x < data->j)
 	{
 		if (data->table[x][0] != '1')
 		{

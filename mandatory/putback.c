@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 14:54:51 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/14 11:48:25 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:22:22 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,15 @@ void	draw_element(char c, int x, int y, t_map **data)
 		pic_player(x, y, &(*data));
 	else if (c == 'E')
 		pic_exit(x, y, &(*data));
+}
 
+char	functin(t_map *data, int i, int j)
+{
+	if (data->table[i][j] == '1' || data->table[i][j] == 'P' ||
+	data->table[i][j] == 'C' || data->table[i][j] == '0' ||
+	data->table[i][j] == 'E' || data->table[i][j] == 'N')
+		return (data->table[i][j]);
+	return (0);
 }
 
 int	pics2(t_map *data)
@@ -57,16 +65,13 @@ int	pics2(t_map *data)
 
 	i = 0;
 	data->k = 0;
-	mlx_clear_window(data->m_init, data->m_new_w);
 	while (data->table[i])
 	{
 		j = 0;
 		data->n = 0;
 		while (data->table[i][j])
 		{
-			if (data->table[i][j] == '1' || data->table[i][j] == 'P' ||
-				data->table[i][j] == 'C' || data->table[i][j] == '0' ||
-				data->table[i][j] == 'E')
+			if (functin(data, i, j) == data->table[i][j])
 				draw_element(data->table[i][j], data->n, data->k, &data);
 			else
 			{

@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:48:20 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/14 12:37:10 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:17:32 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,32 +34,43 @@ void	init_ptr(t_map **data)
 	(*data)->m_new_w = mlx_new_window((*data)->m_init,
 			((*data)->t_len) * 50, (*data)->t_size, "so_long");
 	if (!(*data)->m_new_w)
-		msg(*data,"Error\n");
+		msg(*data, "Error\n");
 	(*data)->zer = mlx_xpm_file_to_image((*data)->m_init,
 			"manda/wall/one.xpm", &(*data)->width, &(*data)->len);
 	if (!(*data)->zer)
-		msg(*data,"Error\n");
+		msg(*data, "Error\n");
 	(*data)->one = mlx_xpm_file_to_image((*data)->m_init,
 			"manda/wall/zero.xpm", &(*data)->width, &(*data)->len);
 	if (!(*data)->one)
-		msg(*data,"Error\n");
+		msg(*data, "Error\n");
 	(*data)->player = mlx_xpm_file_to_image((*data)->m_init,
 			"manda/player/a.xpm", &(*data)->width, &(*data)->len);
 	if (!(*data)->player)
-		msg(*data,"Error\n");
+		msg(*data, "Error\n");
 	(*data)->cake = mlx_xpm_file_to_image((*data)->m_init,
 			"manda/cupcake.xpm", &(*data)->width, &(*data)->len);
 	if (!(*data)->cake)
-		msg(*data,"Error\n");
+		msg(*data, "Error\n");
 	(*data)->exit = mlx_xpm_file_to_image((*data)->m_init,
 			"manda/door/hh.xpm", &(*data)->width, &(*data)->len);
 	if (!(*data)->exit)
-		msg(*data,"Error\n");
+		msg(*data, "Error\n");
 }
 
 int	ft_mmouse(void)
 {
 	return (exit(0), 0);
+}
+
+void	fun(t_map *data)
+{
+	init_ptr(&data);
+	mlx_hook(data->m_new_w, 2, 0, ft_key_hook, (void *)data);
+	backtracking_collect(data);
+	backtracking_exit(data);
+	mlx_hook(data->m_new_w, 17, 0, ft_mmouse, (void *)data);
+	mlx_loop_hook(data->m_init, &pics2, (void *)data);
+	mlx_loop(data->m_init);
 }
 
 int	main(int ac, char	**av)
@@ -77,18 +88,11 @@ int	main(int ac, char	**av)
 			exit(1);
 		check_line(fd, data);
 		data->m_init = mlx_init();
-		if(!data->m_init)
-			msg(data,"Error\n");
+		if (!data->m_init)
+			msg(data, "Error\n");
 		data->t_len = ft_strlen(*data->table);
 		data->t_size = hi(data->table) * 50;
-		init_ptr(&data);
-		pics2(data);
-		mlx_hook(data->m_new_w, 2, 0, ft_key_hook, (void *)data);
-		backtracking_collect(data);
-		backtracking_exit(data);
-		mlx_hook(data->m_new_w, 17, 0, ft_mmouse, (void *)data);
-		mlx_loop_hook(data->m_init, &pics2, (void *)data);
-		mlx_loop(data->m_init);
+		fun(data);
 	}
 	return (0);
 }
