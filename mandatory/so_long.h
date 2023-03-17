@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:29:29 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/16 14:36:31 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:05:44 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,14 @@ typedef struct map
 
 # define BUFFER_SIZE 42 
 
-char	*ft_strchr(char *str, int c);
-int		ft_strlen(char *s);
-char	*ft_strjoin(char *s1, char *s2);
+void	ft_free(void **ptr);
+char	*ft_strchr(char *s, int c);
 char	*ft_strdup(char *string);
+char	*ft_substr(char *s, unsigned int start, size_t len);
+size_t	ft_strlen(char *s);
+char	*ft_strjoin(char *s1, char *s2);
+char	*full_file(char *str);
+char	*full_line(char *ptr);
 char	*get_next_line(int fd);
 char	**ft_split(char const *s, char c);
 void	check_line(int fd, t_map *y);
@@ -69,7 +73,7 @@ int		pics2(t_map *u);
 void	inisia(t_map *j);
 int		hi(char **var);
 int		ft_key_hook(int i, t_map *data);
-void	*ft_free(char **split);
+void	*ft_fe(char **split);
 int		ft_moveup(t_map	*map);
 void	ft_putstr(char *s);
 int		ft_movedown(t_map	*data);

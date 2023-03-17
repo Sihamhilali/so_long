@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 16:07:24 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/14 15:07:08 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:00:43 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,52 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-int	ft_strlen(char *s)
+char	*ft_strdup(char *string)
 {
-	int	i;
+	int		i;
+	char	*ptr;
+
+	i = 0;
+	ptr = (char *)malloc(sizeof(char) * ft_strlen(string));
+	if (!ptr)
+		return (NULL);
+	while (string[i])
+	{
+		ptr[i] = string[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
+}
+
+char	*ft_substr(char *s, unsigned int start, size_t len)
+{
+	char	*ptr;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	if (start < ft_strlen(s))
+	{
+		if ((ft_strlen(s) - start) < len)
+			ptr = malloc(ft_strlen(s) - start + 1);
+		else
+			ptr = malloc(len + 1);
+		if (!ptr)
+			return (NULL);
+		i = -1;
+		while (++i < len && s[start])
+			ptr[i] = s[start++];
+		ptr[i] = 0;
+		return (ptr);
+	}
+	ptr = ft_strdup("");
+	return (ptr);
+}
+
+size_t	ft_strlen(char *s)
+{
+	size_t	i;
 
 	if (!s)
 		return (0);
@@ -44,15 +87,12 @@ int	ft_strlen(char *s)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 	char	*str;
 
 	if (!s1)
-	{
-		s1 = (char *)malloc(1 * sizeof(char));
-		s1[0] = '\0';
-	}
+		s1 = ft_strdup("");
 	if (!s1 || !s2)
 		return (NULL);
 	str = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
@@ -66,6 +106,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[j] != '\0')
 		str[i++] = s2[j++];
 	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
-	free(s1);
+	ft_free((void **)&s1);
 	return (str);
 }

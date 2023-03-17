@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 13:01:49 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/16 14:20:05 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:03:32 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static char	*ft_table(char const *s, char c)
 	return (ptr);
 }
 
-void	*ft_free(char **split)
+void	*ft_fe(char **split)
 {
 	int	i;
 
@@ -104,7 +104,7 @@ char	**ft_split(char const *s, char c)
 		if (s[i])
 			str[w++] = ft_table(&s[i++], c);
 		if (w > 0 && !str[w - 1])
-			return (ft_free(str));
+			return (ft_fe(str));
 		while (s[i] && s[i] != c)
 			i++;
 	}

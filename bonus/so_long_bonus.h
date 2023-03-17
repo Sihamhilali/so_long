@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:17:42 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/16 14:35:45 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:01:54 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct list
 
 # define BUFFER_SIZE 42
 
-void	*ft_free(char **split);
+void	*ft_fe(char **split);
 char	**ft_split(char const *s, char c);
 void	checks_bonus(t_list *data);
 void	get_high_bonus(t_list *data);
@@ -68,10 +68,14 @@ void	check_toop_bonus(t_list *data);
 void	check_down_bonus(t_list *data);
 void	checkleft_bonus(t_list *data);
 void	checkright_bonus(t_list *data);
+void	ft_free(void **ptr);
 char	*ft_strchr(char *s, int c);
 char	*ft_strdup(char *string);
-int		ft_strlen(char *s);
+char	*ft_substr(char *s, unsigned int start, size_t len);
+size_t	ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
+char	*full_file(char *str);
+char	*full_line(char *ptr);
 char	*get_next_line(int fd);
 void	move_bonus(t_list *data);
 void	inisia_bonus(t_list *data);

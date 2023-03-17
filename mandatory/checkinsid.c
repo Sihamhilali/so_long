@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:43:02 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/16 14:18:35 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:08:37 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	msg(t_map *data, char *str)
 {
 	ft_putstr(str);
-	ft_free(data->table);
+	ft_fe(data->table);
 	exit(1);
 }
 

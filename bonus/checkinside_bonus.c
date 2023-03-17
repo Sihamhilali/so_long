@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:16:34 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/16 14:33:06 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:05:19 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	msg_bonus(t_list *data, char *str)
 {
 	ft_putstr(str);
-	ft_free(data->table);
+	ft_fe(data->table);
 	exit(0);
 }
 
