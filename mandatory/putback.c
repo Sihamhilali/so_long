@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 14:54:51 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/16 14:22:22 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/19 08:35:03 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	functin(t_map *data, int i, int j)
 {
 	if (data->table[i][j] == '1' || data->table[i][j] == 'P' ||
 	data->table[i][j] == 'C' || data->table[i][j] == '0' ||
-	data->table[i][j] == 'E' || data->table[i][j] == 'N')
+	data->table[i][j] == 'E')
 		return (data->table[i][j]);
 	return (0);
 }
