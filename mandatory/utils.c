@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 13:01:49 by selhilal          #+#    #+#             */
-/*   Updated: 2023/03/17 20:03:32 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/19 08:49:37 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ void	*ft_fe(char **split)
 	i = 0;
 	while (split[i])
 	{
-		free(split[i]);
+		ft_free((void **)&split[i]);
 		split[i] = 0;
 		i++;
 	}
-	free(split);
+	ft_free((void **)&split);
 	split = 0;
 	return (NULL);
 }

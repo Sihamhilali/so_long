@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:29:29 by selhilal          #+#    #+#             */
-/*   Updated: 2023/03/17 20:05:44 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/19 09:22:20 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ void	ber(char *str);
 void	move(t_map *data);
 int		position_p(t_map *d);
 void	get_high(t_map *data);
-void	backtracking_collect(t_map *data);
-void	backtracking_exit(t_map *data);
+void	back_collect(t_map *data);
+void	back_exit(t_map *data);
 void	checkma(char **tab, int x, int y, t_map *data);
 void	msg(t_map *data, char *str);
 

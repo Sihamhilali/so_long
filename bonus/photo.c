@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:47:58 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/16 13:49:40 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/19 09:32:48 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_move(t_list *map)
 	mlx_string_put(map->m_init, map->m_new_w, 10, 30, 0xFFFFFF, "moves :");
 	line = ft_itoa(map->move);
 	mlx_string_put(map->m_init, map->m_new_w, 70, 30, 0xFFFFFF, line);
-	free(line);
+	ft_free((void **)&line);
 	line = NULL;
 }
 

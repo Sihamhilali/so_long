@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:17:17 by selhilal          #+#    #+#             */
-/*   Updated: 2023/02/16 15:49:44 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/19 09:28:57 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,12 @@ void	check_line_bonus(int fd, t_list *data)
 			exit(1);
 		}
 		k = ft_strjoin(k, data->str);
-		free(data->str);
+		ft_free((void **)&data->str);
 		data->str = get_next_line(fd);
 		data->j++;
 	}
 	lastline_bonus(k);
 	data->table = ft_split(k, '\n');
-	free(k);
+	ft_free((void **)&k);
 	checks_bonus(data);
 }

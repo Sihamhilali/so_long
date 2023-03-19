@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:17:42 by selhilal          #+#    #+#             */
-/*   Updated: 2023/03/17 20:01:54 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/19 09:25:27 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ void	ft_putnbr(int n);
 int		search(char *str, char *ber);
 void	ber(char *str);
 int		pics2_bonus(t_list *data);
-void	backtracking_exit(t_list *data);
-void	backtracking_collect(t_list *data);
+void	back_exit(t_list *data);
+void	back_collect(t_list *data);
 char	*ft_itoa(int n);
 void	ft_move(t_list *map);
 void	pic_player(int x, int y, t_list **data);
