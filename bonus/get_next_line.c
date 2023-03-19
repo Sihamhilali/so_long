@@ -6,12 +6,11 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:44:50 by selhilal          #+#    #+#             */
-/*   Updated: 2023/03/17 19:57:55 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/03/19 10:57:07 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long_bonus.h"
-
 
 char	*full_file(char *string)
 {
